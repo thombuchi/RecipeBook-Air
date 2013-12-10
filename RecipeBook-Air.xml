@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://ns.adobe.com/air/application/3.0">
+	<id>thomas.RecipeBook</id>
+	<filename>RecipeBook</filename>
+	<name>RecipeBook</name>
+	<description>A simple AIR hello world application</description>
+	<versionNumber>3.0</versionNumber>
+
+	<initialWindow>
+		<content>index.html</content>
+		<title>Air Hello World</title>
+		<systemChrome>standard</systemChrome>
+		<transparent>false</transparent>
+		<visible>true</visible>
+		<minimizable>true</minimizable>
+		<maximizable>true</maximizable>
+		<resizable>true</resizable>
+	</initialWindow>
+
+</application>
