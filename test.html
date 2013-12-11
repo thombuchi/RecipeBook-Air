@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeBook</title>
+
+    <!-- Language support -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2" />
+
+    <!--
+      Stylesheets
+      ========================
+    -->
+    <link rel="stylesheet" type="text/css" href="assets/styles/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/app.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/loading.css">
+
+
+  </head>
+
+  <body>
+
+ <div id="app-container" class="expand-all">
+<div id="main-container" class="expand-all">
+  <div class="center-container expand-all">
+    <section class="center form-login">
+      <header>
+      <h1 class="form-header"><img src="assets/images/RecipeBook-Logo@05.png"  style="width:250px;"/> <small>Register</small> </h1>
+      </header>
+      <form id="register" role="form" action="/user/create">
+        <div class="form-group">
+          <label id="labelEmail" for="inputEmail">
+          Email address 
+          <%if(typeof error != 'undefined'){ %>
+            <small>
+            <%= error %>
+            </small>
+          <% } %>
+          </label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <strong>@</strong>
+            </span>
+            <input name="email" type="email" class="form-control input-lg" id="inputEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label id="labelNickname" for="inputEmail">Nickname</label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-user">
+              </span>
+            </span>
+            <input name="nickname" type="text" class="form-control input-lg" id="inputNickname" placeholder="Nickname">
+          </div>
+        </div>
+        <div class="form-group">
+          <label id="labelPassword" for="inputPassword">Password</label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-link">
+              </span>
+            </span>
+            <input type="password" class="form-control input-lg" id="inputPassword" placeholder="Password">
+          </div>
+          <br/>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-link">
+              </span>
+            </span>
+            <input name="password" type="password" class="form-control input-lg" id="inputConfirmPassword" placeholder="Confirm password">
+          </div>
+        </div>
+      
+        <div class="checkbox">
+          <label>
+            <input id="checkboxAccept" type="checkbox"> Accept terms & conditions.
+          </label>
+          <label id="labelAccept">
+           
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+        <a href="/views/settings/language.html" class="btn btn-default btn-lg btn-block">Back</a>
+      </form>
+    </section>
+  </div>
+<div>
+
+
+ </div>
+
+    <!-- listen on socket.io for incoming messages -->
+    <script type="text/javascript" src="js/app.js"></script>
+
+
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="assets/js/jquery-1.10.2.min.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <!-- Happy -->
+    <script type="text/javascript" src="assets/js/happy.js"></script>
+    <script type="text/javascript" src="assets/js/happy.methods.js"></script>
+    <!-- Your scripts here? -->
+    <!-- Your scripts here? -->
+
+
+
+    </body>
+</html>

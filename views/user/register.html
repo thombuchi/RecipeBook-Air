@@ -1,0 +1,62 @@
+<div id="main-container" class="expand-all">
+	<div class="center-container expand-all">
+		<section class="center form-login">
+			<header>
+			<h1 class="form-header"><img src="/assets/images/RecipeBook-Logo@05.png"  style="width:250px;"/> <small>Register</small> </h1>
+			</header>
+			<form id="register" role="form" action="/user/create">
+			  <div class="form-group">
+			    <label id="labelEmail" for="inputEmail">
+			    Email address 
+			    </label>
+			    <div class="input-group">
+			    	<span class="input-group-addon">
+			    		<strong>@</strong>
+			    	</span>
+			    	<input name="email" type="email" class="form-control input-lg" id="inputEmail" placeholder="Email">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label id="labelNickname" for="inputEmail">Nickname</label>
+			    <div class="input-group">
+			    	<span class="input-group-addon">
+			    		<span class="glyphicon glyphicon-user">
+			    		</span>
+			    	</span>
+			    	<input name="nickname" type="text" class="form-control input-lg" id="inputNickname" placeholder="Nickname">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label id="labelPassword" for="inputPassword">Password</label>
+			    <div class="input-group">
+			    	<span class="input-group-addon">
+			    		<span class="glyphicon glyphicon-link">
+			    		</span>
+			    	</span>
+			    	<input type="password" class="form-control input-lg" id="inputPassword" placeholder="Password">
+			    </div>
+			    <br/>
+			    <div class="input-group">
+			    	<span class="input-group-addon">
+			    		<span class="glyphicon glyphicon-link">
+			    		</span>
+			    	</span>
+			    	<input name="password" type="password" class="form-control input-lg" id="inputConfirmPassword" placeholder="Confirm password">
+			    </div>
+			  </div>
+			
+			  <div class="checkbox">
+			    <label>
+			      <input id="checkboxAccept" type="checkbox"> Accept terms & conditions.
+			    </label>
+			   	<label id="labelAccept">
+			     
+			    </label>
+			  </div>
+			  <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+			  <a href="/views/settings/language.html" class="btn btn-default btn-lg btn-block">Back</a>
+			</form>
+		</section>
+	</div>
+<div>
+
