@@ -51,11 +51,8 @@ body {
 /*Own Components*/
 
 	/*Button Radio*/
-		.btn-radio-group {
+		.input-radius {
 			border-radius: 4px;
-			-moz-box-shadow: 0 0 5px #ced7e4;
-			-webkit-box-shadow: 0 0 5px #ced7e4;
-			box-shadow: 0 0 5px #ced7e4;
 		}
 		.btn-radio-group input[type=radio] {
 		    display:none
@@ -82,6 +79,65 @@ body {
 		} 
 	/*END*/
 
+	/*Top NavBar */
+		.top-navbar {
+			position: relative;
+			/*background-image:url('/assets/images/bgnav.png');*/
+			height: 50px;
+			z-index: 10;
+			background-color: #334b6c;
+
+			border-color: #ced7e4;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+
+	/*END*/
+
+	/*Lateral NavBar */
+		.ltl-navbar {
+			/* Old Syntax */
+   			display: -webkit-box;
+ 
+   			/* New Syntax */
+   			display: -webkit-flexbox; 
+
+			background-image:url('/assets/images/bg.png');
+			width: 280px;
+
+			-moz-box-shadow: 0 0 30px #ced7e4;
+			-webkit-box-shadow: 0 0 30px #ced7e4;
+			box-shadow: 0 0 30px #ced7e4;
+			
+
+			}
+
+
+	/*END*/
+
+.book-container {
+	position: absolute;
+
+	top:50px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	/* Old Syntax */
+   	display: -webkit-box;
+   	/* New Syntax */
+	display: -webkit-flexbox; 
+	-webkit-flex-direction: row;
+     display: flex;
+     flex-direction: row;
+}
+
+.shadow {
+	-moz-box-shadow: 0 0 5px #ced7e4;
+	-webkit-box-shadow: 0 0 5px #ced7e4;
+	box-shadow: 0 0 5px #ced7e4;
+	
+}
 
 .expand-all {
 	height: 100%;
@@ -106,7 +162,7 @@ body {
   justify-content: center;
 }
 
-.form-login {
+.center-form {
 	width: 360px;
 	padding: 5px;
 	margin-top: -80px;
@@ -135,3 +191,4 @@ body {
 	color: #B21522;
 	font-weight: normal;
 }
+

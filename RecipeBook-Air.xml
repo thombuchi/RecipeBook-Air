@@ -4,7 +4,7 @@
 	<filename>RecipeBook</filename>
 	<name>RecipeBook</name>
 	<description>A simple AIR hello world application</description>
-	<versionNumber>3.0</versionNumber>
+	<versionNumber>3.9</versionNumber>
 
 	<initialWindow>
 		<content>views/layout.html</content>

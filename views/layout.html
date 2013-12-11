@@ -30,10 +30,7 @@
 
  </div>
 
-    <!-- listen on socket.io for incoming messages -->
     <script type="text/javascript" src="/js/app.js"></script>
-
-
 
     <!-- jQuery -->
     <script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>
@@ -57,13 +54,11 @@
 
     <script type="text/javascript">
 
+
     $(document).ready(function () {
 
       var firstUrl = '/views/settings/language.html';
       loadNewPage(firstUrl);
-
-
-
 
     });
 
@@ -71,15 +66,34 @@
     function loadNewPage(url) {
 
       $('#app-container').load(url, function () {
+
         $('#main-container').hide();
         scriptOnLoad(url);
+
         $('#main-container').fadeIn();
-        $('a').click(function(event){
+        $('a.new-page').click(function(event){
+
           event.preventDefault();
-          var a_href = $(this).attr('href');
-          $('#main-container').fadeOut(function(){loadNewPage(a_href);});
+            var a_href = $(this).attr('href');
+            $('#main-container').fadeOut(function() {
+              loadNewPage(a_href);
+            });
           
         } );
+
+        $('#submit').click(function(event){
+
+          event.preventDefault();
+            var a_href = $(this).data('url');
+            $('#main-container').fadeOut(function() {
+              loadNewPage(a_href);
+            });
+          
+        } );
+
+
+
+
 
       });
 
