@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeBook</title>
+
+    <!-- Language support -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2" />
+
+    <!--
+      Stylesheets
+      ========================
+    -->
+    <link rel="stylesheet" type="text/css" href="/assets/styles/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/assets/styles/app.css">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/loading.css">
+
+
+  </head>
+
+  <body>
+
+ <div id="app-container" class="expand-all">
+
+ </div>
+
+    <!-- listen on socket.io for incoming messages -->
+    <script type="text/javascript" src="/js/app.js"></script>
+
+
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <!-- Happy -->
+    <script type="text/javascript" src="/assets/js/happy.js"></script>
+    <script type="text/javascript" src="/assets/js/happy.methods.js"></script>
+    <!-- Your scripts here? -->
+    <!-- Your scripts here? -->
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+      $('#app-container').load('/views/settings/language.html', function () {
+        $('a').click(function(event){
+          event.preventDefault();
+          $('#main-container').fadeOut('slow');
+        } );
+
+      });
+
+
+    });
+
+    </script>
+
+    </body>
+</html>

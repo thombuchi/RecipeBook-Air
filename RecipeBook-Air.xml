@@ -7,7 +7,7 @@
 	<versionNumber>3.0</versionNumber>
 
 	<initialWindow>
-		<content>index.html</content>
+		<content>views/layout.html</content>
 		<title>Air Hello World</title>
 		<systemChrome>standard</systemChrome>
 		<transparent>false</transparent>

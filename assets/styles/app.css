@@ -1,13 +1,87 @@
+
+/*Fonts*/
+@font-face {
+    font-family: "Drois Sans";
+    src: local("Droid Sans"), url("/assets/fonts/DroidSans-webfont.woff") format('woff');
+}
+
+@font-face {
+    font-family: "Droid Sans";
+    src: local("Droid Sans"), url("/assets/fonts/DroidSans-Bold-webfont.woff") format('woff');
+    font-weight: bold;
+}
+
+
+
+
 html, body {
 	width: 100%;
 	height: 100%;
 	font-family: 'Droid Sans', sans-serif;
+	color: #334b6c;
 }
 
 body {
-	background-image:url('/images/bg.png');
-	color: #354b6d;
+	background-image:url('/assets/images/bg.png');
+	
 }
+
+
+/*Bootstrap Overrides*/
+	.btn {
+		border-radius: 2px;
+	}
+
+	.btn-default {
+		border-color: #ced7e4;
+	}
+
+	.btn-default:hover {
+		background-color: #334b6c;
+		border-radius: 3px;
+		color: white;
+	}
+
+	.btn-default:hover .glyphicon {
+		color: white;
+	}
+
+
+
+/*Own Components*/
+
+	/*Button Radio*/
+		.btn-radio-group {
+			border-radius: 4px;
+			-moz-box-shadow: 0 0 5px #ced7e4;
+			-webkit-box-shadow: 0 0 5px #ced7e4;
+			box-shadow: 0 0 5px #ced7e4;
+		}
+		.btn-radio-group input[type=radio] {
+		    display:none
+		}
+
+		.btn-radio-group label {
+			color: #334b6c; 
+		}
+
+		.btn-radio-group span {
+			position: absolute;
+			right:20px;
+			top:50%;
+			margin-top: -10px;
+		}
+
+		.btn-radio-group input[type=radio]+span {
+			color: #334b6c; 
+			visibility: hidden; 
+		} 
+
+		.btn-radio-group input[type=radio]:checked+span { 
+			visibility: visible; 			
+		} 
+	/*END*/
+
 
 .expand-all {
 	height: 100%;
@@ -15,18 +89,27 @@ body {
 }
 
 .center-container {
-	display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .form-login {
-	width: 350px;
+	width: 360px;
 	padding: 5px;
+	margin-top: -80px;
 }
 
 
@@ -36,6 +119,7 @@ body {
 	border-style: solid;
 	border-width: 0 0 1px 0;
 	padding-bottom: 2px;
+
 }
 
 .form-header small {
