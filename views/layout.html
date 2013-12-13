@@ -30,7 +30,7 @@
 
  </div>
 
-    <script type="text/javascript" src="/js/app.js"></script>
+    
 
     <!-- jQuery -->
     <script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>
@@ -41,131 +41,12 @@
     <script type="text/javascript" src="/assets/js/happy.methods.js"></script>
 
 
-<!-- Uncomment the following line to add introspection.  When running the application hit F12 to bring up the introspector --> 
+    <!-- Air runtime --> 
+    <script type="text/javascript" src="/assets/js/AIRAliases.js"></script>
+    <script type="text/javascript" src="AIRSourceViewer.js"></script>
 
-<script type="text/javascript" src="/assets/js/AIRIntrospector.js"></script>
-
- 
-
-<!-- Uncomment the following line to use the AIR source viewer --> 
-
-<script type="text/javascript" src="AIRSourceViewer.js"></script>
     <!-- Your scripts here? -->
-
-    <script type="text/javascript">
-
-
-    $(document).ready(function () {
-
-      var firstUrl = '/views/settings/language.html';
-      loadNewPage(firstUrl);
-
-    });
-
-
-    function loadNewPage(url) {
-
-      $('#app-container').load(url, function () {
-
-        $('#main-container').hide();
-        scriptOnLoad(url);
-
-        $('#main-container').fadeIn();
-        $('a.new-page').click(function(event){
-
-          event.preventDefault();
-            var a_href = $(this).attr('href');
-            $('#main-container').fadeOut(function() {
-              loadNewPage(a_href);
-            });
-          
-        } );
-
-        $('#submit').click(function(event){
-
-          event.preventDefault();
-            var a_href = $(this).data('url');
-            $('#main-container').fadeOut(function() {
-              loadNewPage(a_href);
-            });
-          
-        } );
-
-
-
-
-
-      });
-
-
-    }
-
-
-
-    function scriptOnLoad(url) {
-
-      if(url=='/views/user/register.html') {
-        registerOnLoad();
-      }
-
-    }
-
-
-
-
-
-    function registerOnLoad() {
-
-      $('#register').isHappy({
-        fields: {
-          '#inputEmail': {
-            required: true,
-            message: 'You are missing your email!',
-            test: happy.email,
-            container: 'labelEmail'
-          },
-          '#inputNickname': {
-            required: true,
-            message: 'Enter your nickname please.',
-            container: 'labelNickname'
-          },
-          '#inputPassword': {
-            required: true,
-            message: 'Your password please.',
-            container: 'labelPassword'
-          },
-          '#inputConfirmPassword': {
-            required: true,
-            message: "Passwords don't match.",
-            container: 'labelPassword',
-            test: function (){
-                  var password = $("#inputPassword").val();
-              var confirmPassword = $("#inputConfirmPassword").val();
-              if(password===confirmPassword){
-                return true;
-              }
-              else
-                {return false;}
-            }
-          },
-          '#checkboxAccept': {
-            required: true,
-            message: "You must accept them.",
-            container: 'labelAccept',
-            test: function () {
-              if ($('#checkboxAccept').is(':checked')){
-                return true;
-              }
-              else {return false;}
-            }
-          }
-
-        }
-      });
-    }
-
-
-    </script>
+    <script type="text/javascript" src="/assets/js/app.js"></script>
 
     </body>
 </html>

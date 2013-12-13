@@ -1,71 +1,168 @@
-/**
- * app.js
- *
- * This file contains some conventional defaults for working with Socket.io + Sails.
- * It is designed to get you up and running fast, but is by no means anything special.
- *
- * Feel free to change none, some, or ALL of this file to fit your needs!
- */
+   $(document).ready(function () {
 
-
-(function (io) {
-
-  // as soon as this file is loaded, connect automatically, 
-  var socket = io.connect();
-  if (typeof console !== 'undefined') {
-    log('Connecting to Sails.js...');
-  }
-
-  socket.on('connect', function socketConnected() {
-
-    // Listen for Comet messages from Sails
-    socket.on('message', function messageReceived(message) {
-
-      ///////////////////////////////////////////////////////////
-      // Replace the following with your own custom logic
-      // to run when a new message arrives from the Sails.js
-      // server.
-      ///////////////////////////////////////////////////////////
-      log('New comet message received :: ', message);
-      //////////////////////////////////////////////////////
+      var firstUrl = '/views/settings/language.html';
+      loadNewPage(firstUrl);
 
     });
 
 
-    ///////////////////////////////////////////////////////////
-    // Here's where you'll want to add any custom logic for
-    // when the browser establishes its socket connection to 
-    // the Sails.js server.
-    ///////////////////////////////////////////////////////////
-    log(
-        'Socket is now connected and globally accessible as `socket`.\n' + 
-        'e.g. to send a GET request to Sails, try \n' + 
-        '`socket.get("/", function (response) ' +
-        '{ console.log(response); })`'
-    );
-    ///////////////////////////////////////////////////////////
+    function loadNewPage(url) {
+
+      $('#app-container').load(url, function () {
+
+        $('#main-container').hide();
+        scriptOnLoad(url);
+
+        $('#main-container').fadeIn();
+        $('a.new-page').click(function(event){
+
+          event.preventDefault();
+            var a_href = $(this).attr('href');
+            $('#main-container').fadeOut(function() {
+              loadNewPage(a_href);
+            });
+          
+        } );
+
+        $('#submit').click(function(event){
+
+          event.preventDefault();
+            var a_href = $(this).data('url');
+            $('#main-container').fadeOut(function() {
+              loadNewPage(a_href);
+            });
+          
+        } );
 
 
-  });
 
 
-  // Expose connected `socket` instance globally so that it's easy
-  // to experiment with from the browser console while prototyping.
-  window.socket = socket;
+
+      });
 
 
-  // Simple log function to keep the example simple
-  function log () {
-    if (typeof console !== 'undefined') {
-      console.log.apply(console, arguments);
     }
-  }
-  
 
-})(
 
-  // In case you're wrapping socket.io to prevent pollution of the global namespace,
-  // you can replace `window.io` with your own `io` here:
-  window.io
 
-);
+    function scriptOnLoad(url) {
+
+      if(url=='/views/user/register.html') {
+        registerOnLoad();
+      }
+      else if(url=='/views/settings/language.html'){
+        languageOnLoad();
+      }
+      else if(url=='/views/user/nickname.html'){
+        nicknameOnLoad();
+      }
+
+    }
+
+
+    function nicknameOnLoad() {
+
+
+        if(air.EncryptedLocalStore.getItem("nickname")){
+            var storedValue = air.EncryptedLocalStore.getItem("nickname");
+            var nick = (storedValue.readUTFBytes(storedValue.length));
+            $('#inputNickname').val(nick);
+        }
+        else {
+           // Do something
+        }
+
+        $('#submit').bind( "click",
+          function(){
+            
+              var str = $("#inputNickname").val();
+              var bytes = new air.ByteArray();
+              bytes.writeUTFBytes(str);
+              air.EncryptedLocalStore.setItem("nickname", bytes);
+            
+          });
+            
+
+    }
+
+
+    function languageOnLoad() {
+
+
+        if(air.EncryptedLocalStore.getItem("language")){
+            var storedValue = air.EncryptedLocalStore.getItem("language");
+            var id = (storedValue.readUTFBytes(storedValue.length));
+            $('#' + id).prop("checked", true);
+        }
+        else {
+            var str = "lEnglish";
+            var bytes = new air.ByteArray();
+            bytes.writeUTFBytes(str);
+            air.EncryptedLocalStore.setItem("language", bytes);
+        }
+
+        $('#language-check label input:radio').change(
+          function(){
+            if ($(this).is(':checked')) {
+              var str = $(this).get(0).id;
+              var bytes = new air.ByteArray();
+              bytes.writeUTFBytes(str);
+              air.EncryptedLocalStore.setItem("language", bytes);
+            }
+          });
+            
+
+    }
+
+
+
+
+    function registerOnLoad() {
+
+      $('#register').isHappy({
+        fields: {
+          '#inputEmail': {
+            required: true,
+            message: 'You are missing your email!',
+            test: happy.email,
+            container: 'labelEmail'
+          },
+          '#inputNickname': {
+            required: true,
+            message: 'Enter your nickname please.',
+            container: 'labelNickname'
+          },
+          '#inputPassword': {
+            required: true,
+            message: 'Your password please.',
+            container: 'labelPassword'
+          },
+          '#inputConfirmPassword': {
+            required: true,
+            message: "Passwords don't match.",
+            container: 'labelPassword',
+            test: function (){
+                  var password = $("#inputPassword").val();
+              var confirmPassword = $("#inputConfirmPassword").val();
+              if(password===confirmPassword){
+                return true;
+              }
+              else
+                {return false;}
+            }
+          },
+          '#checkboxAccept': {
+            required: true,
+            message: "You must accept them.",
+            container: 'labelAccept',
+            test: function () {
+              if ($('#checkboxAccept').is(':checked')){
+                return true;
+              }
+              else {return false;}
+            }
+          }
+
+        }
+      });
+    }
